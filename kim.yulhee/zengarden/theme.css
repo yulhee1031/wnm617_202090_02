@@ -1,0 +1,64 @@
+.page-wrapper {
+	border: 2px;
+	background: none;
+	font-family: arial;
+	font-size: 15px;
+}
+
+
+h3 {
+	font-family: arial;
+	font-size: 20px;
+}
+
+p {
+
+}
+.summary {
+	float: none;
+	width: 100%;
+}
+
+.preamble  {
+	background-color: #f8f9fa;
+	border-radius: 30px;
+}
+
+.main {
+
+}
+
+.explanation {
+	background-color: #f1f3f5;
+	border-radius: 30px;
+
+}
+
+.participation {
+	background-color: #e9ecef;
+	border-radius: 30px;
+}
+
+.benefits {
+	background-color: #dee2e6;
+	border-radius: 30px;
+}
+
+.requirements {
+	background-color: #ced4da;
+	border-radius: 30px;
+}
+
+.extra1 {
+
+	background: none;
+}
+
+
+.sidebar .wrapper {
+	background: none;
+}
+
+footer {
+
+}
