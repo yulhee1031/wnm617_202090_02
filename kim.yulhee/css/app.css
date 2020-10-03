@@ -11,9 +11,9 @@
    --font-serif: Cambria, Georgia, serif;
 
 
-
-   --color-neutral-lighter: #edf0ed;
-   --color-neutral-light: #d2dad2;
+   background-color: #f6f6f6;
+   --color-neutral-lighter: #cad3d5;
+   --color-neutral-light: #3e6c6b;
    --color-neutral-mediumer: #b3bdb3;
    --color-neutral-medium: #788578;
    --color-neutral-dark: #304830;
