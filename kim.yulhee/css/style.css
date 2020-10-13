@@ -238,3 +238,7 @@ a:hover {
       line-height: calc(var(--header-height) * 0.66);
    }
 }
+
+.signin-prompt {
+  height:  20px;
+}
