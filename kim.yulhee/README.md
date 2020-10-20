@@ -6,7 +6,7 @@
 - http://coding.yulheekim.com/aau/wnm617/kim.yulhee/index.html
 
 
-## Demos
+## Deomos
 
 - http://coding.yulheekim.com/aau/wnm617/kim.yulhee/demo/jquery.html
 - http://coding.yulheekim.com/aau/wnm617/kim.yulhee/zengarden
