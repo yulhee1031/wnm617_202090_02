@@ -48,6 +48,9 @@ h6 {
    font-family:var(--font-serif);
 }
 
+img {
+  width: 60%;
+}
 
 a {
    color:inherit;
