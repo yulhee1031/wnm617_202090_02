@@ -8,7 +8,7 @@
 
 :root {
    --font-sans: Helvetica, Arial, sans-serif;
-   --font-serif: Cambria, Georgia, serif;
+   --font-serif: Nunito, sans-serif;
 
 
    background-color: #f6f6f6;
@@ -35,7 +35,8 @@
 body {
    margin:0;
    font-size:100%;
-   font-family:var(--font-sans);
+   font-family:'Nunito', sans-serif;
+;
 }
 
 h1,
@@ -111,6 +112,7 @@ a:hover {
     padding: 0.5em 1em;
     margin: 0;
     outline: 0;
+    border-radius: 20px;
 }
 .form-button {
     display: inline-block;
@@ -122,6 +124,7 @@ a:hover {
     margin: 0;
     outline: 0;
     text-align: center;
+    border-radius: 20px;
 }
 
 
@@ -160,7 +163,7 @@ a:hover {
 }
 [data-role='main'] {
    flex: 1 1 100%;
-   overflow:hidden;
+   overflow:scroll;
    position:relative;
 }
 .ui-header,
@@ -365,34 +368,102 @@ a:hover {
     font-size: 1.5em;
 }
 
-
-
-
-
-
-
-
-/* PROFILE */
-.profile-image img {
-    border-radius: 50%;
-    width: calc(100vw - 4em);
-    height: calc(100vw - 4em);
-    object-fit: cover;
-    margin: 2em;
+hr {
+  color: #edf0ed;
 }
-.profile-body {
-   padding:1em;
-}
-.profile-name {
-   font-size:1.5em;
-   margin-bottom: 1em;
+
+
+.dog-image {
+   padding-top: 30px;
    text-align: center;
 }
 
+.dog-image img {
+    border-radius: 50%;
+    width: calc(50vw);
+    height: calc(50vw);
+    object-fit: cover;
+    margin: 1em;
+}
+
+.dog-profile-list {
+   list-style-type:none;
+   padding:0;
+}
+
+.dog-profile-item {
+   padding: 0.5em 2em;
+   border-bottom:1px solid var(--color-neutral-lighter);
+}
+
+.dog-description {
+  padding: 0.5em 2em;
+  margin-bottom: 20px;
+}
+
+.dog-map {
+  height:200px;
+}
+
+.dog-map img {
+  height: 200px;
+  width: 100%;
+}
+
+/* PROFILE */
+.profile-image {
+   padding-top:  50px;
+   margin-left: 10px;
+
+}
+
+.profile-image img {
+    border-radius: 50%;
+    width: calc(35vw);
+    height: calc(35vw);
+    object-fit: cover;
+    margin: 1em;
+    float: left;
+    margin-right: 30px;
+    margin-left: 25px;
+}
+.profile-body {
+   padding:1em;
+   margin-bottom: 50px;
+}
 
 
+.profile-name {
+   font-size:1.5em;
+   margin-bottom: 10px;
+   text-align: inherit;
+   margin-top: 7px;
+   color: #3e6c6b;
+   font-family: 'Nunito', sans-serif;;
+}
 
 
+.profile-phone {
+   margin-bottom: 7px;
+   color: gray;
+}
+
+.profile-email {
+   margin-bottom: 7px;
+   color: gray;
+ }
+
+.profile-location {
+   margin-bottom: 7px;
+   color: gray;
+}
+
+
+.setting {
+  text-align: center;
+  padding-top: 100px;
+  font-size: 1em;
+}
 
 .settings-list {
    list-style-type:none;
@@ -400,19 +471,20 @@ a:hover {
    padding:0;
 }
 
-.settings-item a {
-   display:block;
-   padding:0.5em 1em;
+.settings-item {
+   padding: 0.5em 1em;
    border-bottom:1px solid var(--color-neutral-lighter);
-   position:relative;
 }
-.settings-item a:not([href='#'])::after {
-   content:'>';
-   position:absolute;
-   top:50%;
-   right:1em;
-   transform:translateY(-50%);
+
+.settings-item a {
+   color: gray;
+   margin-left: 10px;
 }
+
+.settings-item img {
+  width: 25px;
+}
+
 
 
 
@@ -431,14 +503,18 @@ a:hover {
     box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
     overflow: hidden;
     background-color: white;
+    padding-left: 12px;
 }
 .animallist-description {
    padding:0.5em;
 }
-.animallist-type,
+
 .animallist-breed {
-   font-size:0.8em;
+   font-size:0.9em;
+   padding-left: 20px;
 }
 .animallist-name {
    font-size:1.2em;
+   padding-bottom: 10px;
+   padding-left: 20px;
 }
