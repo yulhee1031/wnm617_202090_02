@@ -79,9 +79,8 @@
     animal_id:'{{integer(1,50)}}',
 
     
-    lat: '{{floating(37.797805, 37.753270)}}',
-    lon: '{{floating(-122.521047, -122.537180)}}',
-    
+    lat: '{{floating(37.791723, 37.703208)}}',
+    lon: '{{floating(-122.522881, -122.381666)}}',
     
     description: '{{lorem(3, "sentences")}}',
     
@@ -91,6 +90,7 @@
     date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}'
   }
 ]
+
 
 
 
