@@ -13,12 +13,12 @@
     username: function(){
       return 'user' + this.id;
     },
+    phone: '+1 {{phone()}}',
     email: function(){
       return this.username + '@gmail.com';
     },
     password: 'md5(pass)',
-    
-    
+    location: '{{integer(100, 999)}} {{street()}}, {{city()}}, {{state()}}, {{integer(100, 10000)}}',
     
     img: function(tags) {
       return 'https://via.placeholder.com/400/' +

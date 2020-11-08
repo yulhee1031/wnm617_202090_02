@@ -23,8 +23,7 @@ const makeUserProfile = templater(o=>`
     <div class="profile-email">${o.email}</div>
     <div class="profile-location">${o.location}</div>
 </div>
-<p><a href="#settings-page">Settings</a></p>
-`)
+`);
 
 
 
