@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Animal Tracker</title>
@@ -19,6 +19,8 @@
    <script src="js/app.js"></script>
 
    <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
+
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZ5GOYfpg7xRfrRNbnNHdouhLU9Ebam7I" defer></script>
 
 </head>
 <body>
@@ -77,6 +79,8 @@
 
    <section data-role="page" id="recent-page">
       <div data-role="main">
+         <div class="map"></div>
+
          <div class="floater bottom right">
             <div class="btn-circle" data-toggle="#list-add-modal">&plus;</div>
          </div>
