@@ -79,8 +79,8 @@
     animal_id:'{{integer(1,50)}}',
 
     
-    lat: '{{floating(37.791723, 37.703208)}}',
-    lon: '{{floating(-122.522881, -122.381666)}}',
+    lat: '{{floating(37.782031, 37.739469)}}',
+    lon: '{{floating(-122.493123, -122.393894)}}',
     
     description: '{{lorem(3, "sentences")}}',
     
