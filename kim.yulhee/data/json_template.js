@@ -56,6 +56,9 @@
       return chosen_type[chosen_index];
     }, */
     
+    gender: '{{gender()}}', 
+    age: '{{integer(1, 15)}}',
+
     description: '{{lorem(3, "sentences")}}',
     
     img: function(tags) {
