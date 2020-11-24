@@ -30,12 +30,17 @@ const makeUserProfile = templater(o=>`
 
 
 const makeAnimalProfile = templater(o=>`
-<div class="profile-image">
+<div class="dog-image">
    <img src="${o.img}" alt="">
 </div>
-<div class="profile-body">
-   <div class="profile-name">${o.name}</div>
-   <div class="profile-breed"><strong>Breed</strong>: ${o.breed}</div>
+<ul class="dog-profile-list">
+   <li class="dog-profile-item">Name: ${o.name}</li>
+   <li class="dog-profile-item">Breed: ${o.breed}</li>
+   <li class="dog-profile-item">Gender: ${o.gender}</li>
+   <li class="dog-profile-item">Age: ${o.age}</li>
+</ul>
+<div class="dog-description">
+   <p>${o.description}</p>
 </div>
 `);
 
@@ -69,7 +74,7 @@ const FormControl = ({namespace,name,displayname,type,placeholder,value}) => {
 
 const makeAnimalProfileUpdateForm = o => `
 ${FormControl({
-   namespace:"animal-edit",
+   namespace:"animal",
    name:"name",
    displayname:"Name",
    type:"text",
@@ -77,7 +82,7 @@ ${FormControl({
    value:o.name
 })}
 ${FormControl({
-   namespace:"animal-edit",
+   namespace:"animal",
    name:"breed",
    displayname:"Breed",
    type:"text",
@@ -85,20 +90,28 @@ ${FormControl({
    value:o.breed
 })}
 ${FormControl({
-   namespace:"animal-edit",
+   namespace:"animal",
    name:"gender",
    displayname:"Gender",
    type:"text",
-   placeholder:"Choose An Animal Gender",
+   placeholder:"Type Animal Gender",
    value:o.gender
 })}
 ${FormControl({
-   namespace:"animal-edit",
+   namespace:"animal",
    name:"age",
    displayname:"Age",
    type:"text",
-   placeholder:"Choose An Animal Age",
+   placeholder:"Type Animal Age",
    value:o.age
+})}
+${FormControl({
+   namespace:"animal",
+   name:"description",
+   displayname:"Description",
+   type:"text",
+   placeholder:"Choose An Animal Description",
+   value:o.description
 })}
 `;
 
@@ -127,5 +140,13 @@ ${FormControl({
    type:"text",
    placeholder:"Type Your Email",
    value:o.email
+})}
+${FormControl({
+   namespace:"user-edit",
+   name:"phone",
+   displayname:"Phone Numbe",
+   type:"text",
+   placeholder:"Type Your Phone Number",
+   value:o.phone
 })}
 `;

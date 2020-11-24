@@ -125,7 +125,7 @@
          <hr>
          <div data-role="main">
             <ul class="settings-list">
-               <li class="settings-item"><img src="img/settings.svg" alt="settings"><a href="#profile-settings-page">Profile Settings</a></li>
+               <li class="settings-item"><img src="img/settings.svg" alt="settings"><a href="#user-profile-edit-page">Profile Settings</a></li>
                <li class="settings-item"><img src="img/lock.svg" alt="lock"><a href="#password-settings-page">Change Password</a></li>
                <li class="settings-item"><img src="img/logout.svg" alt="logout"><a href="#" class="js-logout">Logout</a></li>
             </ul>
@@ -140,7 +140,7 @@
       </footer>
    </section>
 
-   <section data-role="page" id="profile-settings-page">
+   <section data-role="page" id="user-profile-edit-page">
       <header data-role="header">
          <h1>Profile Settings</h1>
          <ul>
@@ -150,28 +150,7 @@
          </ul>
       </header>
       <div data-role="main" style="padding:1em">
-         <form id="profile-form" data-ajax="false">
-            <div class="form-control">
-               <label for="profile-username" class="form-label">Username</label>
-               <input id="profile-username" type="text" class="form-input" data-role="none" placeholder="Type your username" value="kenbro">
-            </div>
-            <div class="form-control">
-               <label for="profile-name" class="form-label">Full Name</label>
-               <input id="profile-name" type="text" class="form-input" data-role="none" placeholder="Type your name" value="Emily Jenkins">
-            </div>
-            <div class="form-control">
-               <label for="profile-email" class="form-label">Email</label>
-               <input id="profile-email" type="text" class="form-input" data-role="none" placeholder="Type your email" value="emily88@gmail.com">
-            </div>
-            <div class="form-control">
-               <label for="profile-phone" class="form-label">Phone</label>
-               <input id="profile-phone" type="text" class="form-input" data-role="none" placeholder="Type your phone" value="650-123-4566">
-            </div>
-            <div class="form-control">
-               <label for="profile-location" class="form-label">Location</label>
-               <input id="profile-location" type="text" class="form-input" data-role="none" placeholder="Type your location" value="San Jose, CA">
-            </div>
-         </form>
+         <form id="user-form" data-ajax="false"></form>
       </div>
    </section>
 
@@ -208,29 +187,20 @@
          <ul>
             <li><a href="#" data-rel="back">Back</a></li>
             <li class="flex-stretch"></li>
-            <li><a href="#animal-edit-page" class="ui-link">Edit</a></li>
+            <li><a href="#animal-profile-edit-page" class="ui-link">Edit</a></li>
          </ul>
-         
       </header>
       <div data-role="main" class="display-flex flex-column">
-         <div class="dog-image">
-            <img src="img/beagle.jpg" alt="beagle">
+         <div class="animal-top">
+            <div class="map"></div>
          </div>
-         <ul class="dog-profile-list">
-            <li class="dog-profile-item">Name: Tommy</li>
-            <li class="dog-profile-item">Breed: Beagle</li>
-            <li class="dog-profile-item">Location: Sunnyvale, CA</li>
-         </ul>
-         <div class="dog-description">
-            <p>Lorem ipsum dolor sit, amet, consectetur adipisicing elit. Voluptates iste vero animi fugiat voluptas, accusantium est ea veritatis dolore debitis doloremque odit aliquid voluptatem numquam, vitae accusamus illum itaque quia facere ullam dolorum quod sunt atque repellendus, quae.</p>
-         </div>
-         <div class="dog-map">
-            <img src="img/map2.jpg" alt="map">
+         <div class="animal-bottom">
+            <div class="profile"></div>
          </div>
       </div>
    </section>
 
-   <section data-role="page" id="animal-edit-page">
+   <section data-role="page" id="animal-profile-edit-page">
       <header data-role="header">
          <h1>Animal Edits</h1>
          <ul>
@@ -240,24 +210,7 @@
          </ul>
       </header>
       <div data-role="main" style="padding:1em">
-         <form id="animal-form" data-ajax="false">
-            <div class="form-control">
-               <label for="animal-name" class="form-label">Name</label>
-               <input id="animal-name" type="text" class="form-input" data-role="none" placeholder="Type dog name" value="Tommy">
-            </div>
-            <div class="form-control">
-               <label for="animal-breed" class="form-label">Breed</label>
-               <input id="animal-breed" type="text" class="form-input" data-role="none" placeholder="Type dog breed" value="Beagle">
-            </div>
-            <div class="form-control">
-               <label for="animal-location" class="form-label">Location</label>
-               <input id="animal-location" type="text" class="form-input" data-role="none" placeholder="Type dog location" value="Sunnyvale, CA">
-            </div>
-            <div class="form-control">
-               <label for="animal-description" class="form-label">Description</label>
-               <input id="animal-description" type="text" class="form-input" data-role="none" placeholder="Type dog description" value="Lorem ipsum dolor sit, amet, consectetur adipisicing elit. Voluptates iste vero animi fugiat voluptas, accusantium est ea veritatis dolore debitis doloremque odit aliquid voluptatem numquam, vitae accusamus illum itaque quia facere ullam dolorum quod sunt atque repellendus, quae.">
-            </div>
-         </form>
+         <form id="animal-form" data-ajax="false" style="padding:1em"></form>
       </div>
    </section>
 

@@ -64,18 +64,29 @@ const ListPage = async() => {
 
 
 const UserProfilePage = async() => {
-   let d = await query({
+   query({
       type:'user_by_id',
       params:[sessionStorage.userId]
+   }).then(d=>{
+
+      console.log(d)
+
+      $("#user-profile-page .profile")
+         .html(makeUserProfile(d.result));
    });
-
-   console.log(d)
-
-   $("#user-profile-page .profile")
-      .html(makeUserProfile(d.result));
 }
 
+const UserProfileEditPage = async() => {
+   query({
+      type:'user_by_id',
+      params:[sessionStorage.userId]
+   }).then(d=>{
+      console.log(d)
 
+      $("#user-form")
+         .html(makeUserProfileUpdateForm(d.result[0]));
+   });
+}
 
 
 
@@ -109,7 +120,7 @@ const AnimalProfileEditPage = async() => {
    }).then(d=>{
       console.log(d)
 
-      $("#animal-edit-form")
+      $("#animal-form")
          .html(makeAnimalProfileUpdateForm(d.result[0]));
    });
 }
