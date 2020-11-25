@@ -39,8 +39,8 @@ const makeAnimalProfile = templater(o=>`
    <li class="dog-profile-item">Gender: ${o.gender}</li>
    <li class="dog-profile-item">Age: ${o.age}</li>
 </ul>
-<div class="dog-description">
-   <p>${o.description}</p>
+<div>
+   <a href="#" class="js-animal-delete" data-id="${o.id}">Delete</a>
 </div>
 `);
 
@@ -72,7 +72,7 @@ const FormControl = ({namespace,name,displayname,type,placeholder,value}) => {
 }
 
 
-const makeAnimalProfileUpdateForm = o => `
+const mmakeAnimalEditForm = o => `
 ${FormControl({
    namespace:"animal",
    name:"name",
@@ -113,10 +113,14 @@ ${FormControl({
    placeholder:"Choose An Animal Description",
    value:o.description
 })}
+<div class="form-control">
+   <label for="animal-edit-description" class="form-label">Description</label>
+   <textarea id="animal-edit-description" class="form-input" data-role="none" placeholder="Type animal description">${o.description}</textarea>
+</div>
 `;
 
 
-const makeUserProfileUpdateForm = o => `
+const makeUserEditForm = o => `
 ${FormControl({
    namespace:"user-edit",
    name:"username",

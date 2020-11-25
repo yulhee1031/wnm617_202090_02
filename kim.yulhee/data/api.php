@@ -100,6 +100,91 @@ function makeStatement($data) {
 
 
 
+
+      // CRUD
+
+      // INSERT
+
+      case "insert_user":
+         $r = makeQuery($c,"SELECT * FROM `track_users` WHERE `username` = ? OR `email` = ?",[$p[0],$p[1]]);
+         if(count($r['result'])) return ['error'=>"Username or Email already exists"];
+
+         $r = makeQuery($c,"INSERT INTO
+            `track_users`
+            (`user_id`,`username`,`phone`,`email`,`password`,`location`,`img`,`date_create`)
+            VALUES
+            (?, ?, ?, ?, md5(?), ?, 'https://via.placeholder.com/400/?text=USER', NOW())
+            ",$p);
+         return ["id"=>$c->lastInsertId()];
+
+      case "insert_animal":
+            $r = makeQuery($c,"INSERT INTO
+               `track_animals`
+               (`user_id`,`name`,`breed`,`gender`,`age`,`description`,`img`,`date_create`)
+               VALUES
+               (?, ?, ?, ?, ?, ?, 'https://via.placeholder.com/400/?text=ANIMAL', NOW())
+               ",$p,false);
+            return ["id"=>$c->lastInsertId()];
+
+      case "insert_location":
+         $r = makeQuery($c,"INSERT INTO
+            `track_locations`
+            (`animal_id`,`lat`,`lng`,`description`,`photo`,`icon`,`date_create`)
+            VALUES
+            (?, ?, ?, ?, 'https://via.placeholder.com/400/?text=LOCATION', 'https://via.placeholder.com/100/?text=ICON', NOW())
+            ",$p,false);
+         return ["id"=>$c->lastInsertId()];
+
+
+
+
+
+      // UPDATE STATEMENTS
+
+      case "update_user":
+         $r = makeQuery($c,"UPDATE
+            `track_users`
+            SET
+               `username` = ?,
+               `name` = ?,
+               `phone` = ?,
+               `email` = ?,
+               `location` = ?,
+            WHERE `id` = ?
+            ",$p,false);
+         return ["result"=>"success"];
+
+      case "update_animal":
+         $r = makeQuery($c,"UPDATE
+            `track_animals`
+            SET
+               `name` = ?,
+               `breed` = ?,
+               `gender` = ?,
+               `age` = ?,
+               `description` = ?
+            WHERE `id` = ?
+            ",$p,false);
+         return ["result"=>"success"];
+
+
+      // DELETE STATEMENTS
+
+      case "delete_animal":
+         return makeQuery($c,"DELETE FROM `track_animals` WHERE `id` = ?",$p,false);
+
+      case "delete_location":
+         return makeQuery($c,"DELETE FROM `track_locations` WHERE `id` = ?",$p,false);
+
+
+
+      default: return ["error"=>"No Matched type"];
+   }
+}
+
+
+
+
 $data = json_decode(file_get_contents("php://input"));
 
 

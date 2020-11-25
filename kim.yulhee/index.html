@@ -13,6 +13,7 @@
    <script src="lib/js/jquery-2.2.4.min.js"></script>
 
    <script src="js/functions.js"></script>
+   <script src="js/forms.js"></script>
    <script src="js/maps.js"></script>
    <script src="js/pages.js"></script>
    <script src="js/parts.js"></script>
@@ -52,7 +53,7 @@
       </div>
    </section>
 
-   <section data-role="page" id="signup-page">
+ <section data-role="page" id="signup-page">
       <div data-role="main" class="display-flex flex-align-center flex-justify-center">
          <form id="signup-form" data-ajax="false">
             <div class="form-control">
@@ -60,15 +61,19 @@
                <input id="signup-username" type="text" class="form-input" data-role="none" placeholder="Type your username">
             </div>
             <div class="form-control">
+               <label for="signup-email" class="form-label">Email</label>
+               <input id="signup-email" type="text" class="form-input" data-role="none" placeholder="Type your email">
+            </div>
+            <div class="form-control">
                <label for="signup-password" class="form-label">Password</label>
                <input id="signup-password" type="password" class="form-input" data-role="none" placeholder="Type your password">
             </div>
             <div class="form-control">
                <label for="signup-password-confirm" class="form-label">Confirm Password</label>
-               <input id="signup-password-confirm" type="password" class="form-input" data-role="none" placeholder="Type your password">
+               <input id="signup-password-confirm" type="password" class="form-input" data-role="none" placeholder="Retype your password">
             </div>
             <div class="form-control">
-               <a href="#recent-page" class="form-button">Sign Up</a>
+               <input type="submit" class="form-button" value="Sign Up" data-role="none">
             </div>
             <div class="form-control signin-alt">
                Already have an account?
@@ -125,7 +130,7 @@
          <hr>
          <div data-role="main">
             <ul class="settings-list">
-               <li class="settings-item"><img src="img/settings.svg" alt="settings"><a href="#user-profile-edit-page">Profile Settings</a></li>
+               <li class="settings-item"><img src="img/settings.svg" alt="settings"><a href="#user-edit-page">Profile Settings</a></li>
                <li class="settings-item"><img src="img/lock.svg" alt="lock"><a href="#password-settings-page">Change Password</a></li>
                <li class="settings-item"><img src="img/logout.svg" alt="logout"><a href="#" class="js-logout">Logout</a></li>
             </ul>
@@ -140,7 +145,7 @@
       </footer>
    </section>
 
-   <section data-role="page" id="user-profile-edit-page">
+   <section data-role="page" id="user-edit-page">
       <header data-role="header">
          <h1>Profile Settings</h1>
          <ul>
@@ -187,7 +192,7 @@
          <ul>
             <li><a href="#" data-rel="back">Back</a></li>
             <li class="flex-stretch"></li>
-            <li><a href="#animal-profile-edit-page" class="ui-link">Edit</a></li>
+            <li><a href="#animal-edit-page" class="ui-link">Edit</a></li>
          </ul>
       </header>
       <div data-role="main" class="display-flex flex-column">
@@ -200,7 +205,42 @@
       </div>
    </section>
 
-   <section data-role="page" id="animal-profile-edit-page">
+
+   <section data-role="page" id="animal-add-page">
+      <header data-role="header">
+         <h1>Animal Info</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" class="js-animal-add">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main" class="display-flex flex-column">
+         <form id="animal-add-form" data-ajax="false" style="padding:1em">
+            <input type="hidden" id="animal-add-destination" value="#list-page">
+            <div class="form-control">
+               <label for="animal-add-name" class="form-label">Name</label>
+               <input id="animal-add-name" type="text" class="form-input" data-role="none" placeholder="Type animal name">
+            </div>
+            <div class="form-control">
+               <label for="animal-add-type" class="form-label">Type</label>
+               <input id="animal-add-type" type="text" class="form-input" data-role="none" placeholder="Type animal type">
+            </div>
+            <div class="form-control">
+               <label for="animal-add-breed" class="form-label">Breed</label>
+               <input id="animal-add-breed" type="text" class="form-input" data-role="none" placeholder="Type animal breed">
+            </div>
+            <div class="form-control">
+               <label for="animal-add-description" class="form-label">Description</label>
+               <textarea id="animal-add-description" class="form-input" data-role="none" placeholder="Type animal description"></textarea>
+            </div>
+         </form>
+      </div>
+   </section>
+
+
+
+   <section data-role="page" id="animal-edit-page">
       <header data-role="header">
          <h1>Animal Edits</h1>
          <ul>
@@ -213,6 +253,46 @@
          <form id="animal-form" data-ajax="false" style="padding:1em"></form>
       </div>
    </section>
+
+
+   <section data-role="page" id="location-add-page">
+      <header data-role="header">
+         <h1>Choose Location</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#location-description-page">Next</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <input type="hidden" id="location-add-lat">
+         <input type="hidden" id="location-add-lng">
+         <div class="map"></div>
+      </div>
+   </section>
+
+
+   <section data-role="page" id="location-description-page">
+      <header data-role="header">
+         <h1>Describe Location</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" class="js-location-add">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <div class="overscroll">
+            <form id="location-add-form" data-ajax="false" style="padding:1em">
+               <div class="form-control">
+                  <label for="location-add-description" class="form-label">Description</label>
+                  <textarea id="location-add-description" class="form-input" data-role="none" placeholder="Type location description"></textarea>
+               </div>
+            </form>
+         </div>
+      </div>
+   </section>
+
 
 
    <div class="modal" id="warning-modal">
@@ -243,7 +323,7 @@
          <div class="modal-foot">
             <input type="submit" value="Save" data-role="none">
          </div>
-      </div>
+      </form>
    </div>
 
 </body>
