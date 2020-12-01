@@ -94,12 +94,6 @@ function makeStatement($data) {
             GROUP BY l.animal_id
             ",$p);
 
-      default: return ["error"=>"No Matched type"];
-   }
-}
-
-
-
 
       // CRUD
 
@@ -111,10 +105,10 @@ function makeStatement($data) {
 
          $r = makeQuery($c,"INSERT INTO
             `track_users`
-            (`user_id`,`username`,`phone`,`email`,`password`,`location`,`img`,`date_create`)
+            (`username`,`name`,`phone`,`email`,`password`,`img`,`date_create`)
             VALUES
-            (?, ?, ?, ?, md5(?), ?, 'https://via.placeholder.com/400/?text=USER', NOW())
-            ",$p);
+            (?, ?, ?, ?, md5(?), 'https://via.placeholder.com/400/?text=USER', NOW())
+            ",$p,false);
          return ["id"=>$c->lastInsertId()];
 
       case "insert_animal":
@@ -149,7 +143,6 @@ function makeStatement($data) {
                `name` = ?,
                `phone` = ?,
                `email` = ?,
-               `location` = ?,
             WHERE `id` = ?
             ",$p,false);
          return ["result"=>"success"];

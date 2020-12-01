@@ -61,6 +61,14 @@
                <input id="signup-username" type="text" class="form-input" data-role="none" placeholder="Type your username">
             </div>
             <div class="form-control">
+               <label for="signup-name" class="form-label">Name</label>
+               <input id="signup-name" type="text" class="form-input" data-role="none" placeholder="Type your name">
+            </div>
+            <div class="form-control">
+               <label for="signup-phone" class="form-label">Phone</label>
+               <input id="signup-phone" type="text" class="form-input" data-role="none" placeholder="Type your phone">
+            </div>
+            <div class="form-control">
                <label for="signup-email" class="form-label">Email</label>
                <input id="signup-email" type="text" class="form-input" data-role="none" placeholder="Type your email">
             </div>
@@ -87,10 +95,34 @@
       <div data-role="main">
          <div class="map"></div>
 
-         <div class="floater bottom right">
-            <div class="btn-circle" data-toggle="#list-add-modal">&plus;</div>
+         <!-- <div class="floater top right">
+            <div class="btn-circle" data-activate="#recent-add-modal" data-deactivate="#recent-profile-modal">&equiv;</div>
          </div>
+         <div class="floater bottom right">
+            <div class="btn-circle" data-toggle="#recent-profile-modal">&plus;</div>
+         </div>
+      -->
+
+
+         <div class="modal" id="recent-animal-modal">
+            <div class="modal-drawer bottom">
+               <div class="modal-close-floater top right">
+                  <div class="btn-circle" data-deactivate="#recent-animal-modal">&times;</div>
+               </div>
+               <div class="modal-head">head</div>
+               <div class="modal-body"></div>
+            </div>
+         </div>
+
+         <!-- <div class="modal" id="recent-profile-modal">
+            <div class="modal-drawer left">
+               <div class="modal-head">head</div>
+               <div class="modal-body">body</div>
+            </div>
+         </div> -->
       </div>
+
+
       <footer data-role="footer">
          <ul>
             <li><a href="#recent-page"><strong>Recent</strong></a></li>
@@ -106,7 +138,7 @@
       </header>
       <div data-role="main">
          <div class="floater bottom right">
-            <div class="btn-circle" data-toggle="#list-add-modal">&plus;</div>
+            <div class="btn-circle" data-toggle="#animal-add-modal">&plus;</div>
          </div>
 
          <div class="overscroll">
@@ -198,43 +230,13 @@
       <div data-role="main" class="display-flex flex-column">
          <div class="animal-top">
             <div class="map"></div>
-         </div>
+            <div class="floater bottom right">
+               <a href="#location-add-page" class="btn-circle">&plus;</a>
+            </div>
+         </div>`
          <div class="animal-bottom">
             <div class="profile"></div>
          </div>
-      </div>
-   </section>
-
-
-   <section data-role="page" id="animal-add-page">
-      <header data-role="header">
-         <h1>Animal Info</h1>
-         <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
-            <li class="flex-stretch"></li>
-            <li><a href="#" class="js-animal-add">Save</a></li>
-         </ul>
-      </header>
-      <div data-role="main" class="display-flex flex-column">
-         <form id="animal-add-form" data-ajax="false" style="padding:1em">
-            <input type="hidden" id="animal-add-destination" value="#list-page">
-            <div class="form-control">
-               <label for="animal-add-name" class="form-label">Name</label>
-               <input id="animal-add-name" type="text" class="form-input" data-role="none" placeholder="Type animal name">
-            </div>
-            <div class="form-control">
-               <label for="animal-add-type" class="form-label">Type</label>
-               <input id="animal-add-type" type="text" class="form-input" data-role="none" placeholder="Type animal type">
-            </div>
-            <div class="form-control">
-               <label for="animal-add-breed" class="form-label">Breed</label>
-               <input id="animal-add-breed" type="text" class="form-input" data-role="none" placeholder="Type animal breed">
-            </div>
-            <div class="form-control">
-               <label for="animal-add-description" class="form-label">Description</label>
-               <textarea id="animal-add-description" class="form-input" data-role="none" placeholder="Type animal description"></textarea>
-            </div>
-         </form>
       </div>
    </section>
 
@@ -302,22 +304,30 @@
    </div>
 
 
-   <div class="modal" id="list-add-modal">
-      <div class="modal-back" data-deactivate="#list-add-modal"></div>
-      <form id="list-add-form" data-ajax="false" class="modal-popup">
+   <div class="modal" id="animal-add-modal">
+      <div class="modal-back" data-deactivate="#animal-add-modal"></div>
+      <form id="animal-add-form" data-ajax="false" class="modal-popup">
          <div class="modal-head">Add Animal</div>
          <div class="modal-body">
             <div class="form-control">
-               <label for="list-add-name" class="form-label">Name</label>
-               <input id="list-add-name" type="text" class="form-input" data-role="none" placeholder="Type animal name">
+               <label for="animal-add-name" class="form-label">Name</label>
+               <input id="animal-add-name" type="text" class="form-input" data-role="none" placeholder="Type animal name">
             </div>
             <div class="form-control">
-               <label for="list-add-breed" class="form-label">Breed</label>
-               <input id="list-add-breed" type="text" class="form-input" data-role="none" placeholder="Type animal breed">
+               <label for="animal-add-breed" class="form-label">Breed</label>
+               <input id="animal-add-breed" type="text" class="form-input" data-role="none" placeholder="Type animal breed">
             </div>
             <div class="form-control">
-               <label for="list-add-location" class="form-label">Location</label>
-               <input id="list-add-location" type="text" class="form-input" data-role="none" placeholder="Type animal location">
+               <label for="animal-add-gender" class="form-label">Gender</label>
+               <input id="animal-add-gender" type="text" class="form-input" data-role="none" placeholder="Type animal gender">
+            </div>
+            <div class="form-control">
+               <label for="animal-add-age" class="form-label">Age</label>
+               <input id="animal-add-age" type="text" class="form-input" data-role="none" placeholder="Type animal age">
+            </div>
+            <div class="form-control">
+               <label for="animal-add-description" class="form-label">Description</label>
+               <input id="animal-add-description" type="text" class="form-input" data-role="none" placeholder="Type animal description">
             </div>
          </div>
          <div class="modal-foot">

@@ -20,14 +20,13 @@ $(()=>{
          case 'list-page': ListPage(); break;
 
          case 'user-profile-page': UserProfilePage(); break;
-         case 'user-profile-edit-page': UserProfileEditPage(); break;
+         case 'user-edit-page': UseEditPage(); break;
 
          case 'animal-profile-page': AnimalProfilePage(); break;
-         case 'animal-profile-edit-page': AnimalProfileEditPage(); break;
+         case 'animal-edit-page': AnimalEditPage(); break;
 
          case 'location-add-page': LocationAddPage(); break;
 
-      }
       }
    })
 
@@ -51,7 +50,8 @@ $(()=>{
 
    /* FORM SUBMIT BY BUTTON */
 
-   .on("click",".js-animal-add",function(e){
+   .on("submit","#animal-add-form",function(e){
+      e.preventDefault();
       checkAnimalAddForm();
    })
    .on("click",".js-animal-edit",function(e){

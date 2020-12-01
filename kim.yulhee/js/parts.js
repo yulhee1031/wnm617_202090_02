@@ -113,10 +113,6 @@ ${FormControl({
    placeholder:"Choose An Animal Description",
    value:o.description
 })}
-<div class="form-control">
-   <label for="animal-edit-description" class="form-label">Description</label>
-   <textarea id="animal-edit-description" class="form-input" data-role="none" placeholder="Type animal description">${o.description}</textarea>
-</div>
 `;
 
 

@@ -4,19 +4,25 @@
 
 const checkSignupForm = () => {
    let username = $("#signup-username").val();
+   let name = $("#signup-name").val();
+   let phone = $("#signup-phone").val();
    let email = $("#signup-email").val();
    let password = $("#signup-password").val();
    let passwordconfirm = $("#signup-password-confirm").val();
 
+   console.log(username,name,phone,email,password)
+
    if(password!=passwordconfirm) {
       throw "Passwords don't match";
    } else {
-      query({type:'insert_user',params:[username,email,password]})
-      then(d=>{
+      query({
+         type:'insert_user',
+         params:[username,name,phone,email,password]})
+      .then(d=>{
          if(d.error) {
             throw d.error;
          }
-         console.log(d.id)
+         console.log(d)
          $.mobile.navigate("#signin-page");
       })
    }
@@ -29,11 +35,10 @@ const checkUserEditForm = () => {
    let name = $("#user-edit-name").val();
    let phone = $("#user-edit-phone").val();
    let email = $("#user-edit-email").val();
-   let location = $("#user-edit-location").val();
 
    query({
       type:'update_user',
-      params:[username,name,email,sessionStorage.userId]})
+      params:[username,name,phone,email,sessionStorage.userId]})
    .then(d=>{
       if(d.error) {
          throw d.error;
@@ -47,13 +52,14 @@ const checkUserEditForm = () => {
 
 const checkAnimalAddForm = () => {
    let name = $("#animal-add-name").val();
-   let type = $("#animal-add-type").val();
    let breed = $("#animal-add-breed").val();
+   let gender = $("#animal-add-gender").val();
+   let age = $("#animal-add-age").val();
    let description = $("#animal-add-description").val();
 
 
    query({
-      type:'insert_user',
+      type:'insert_animal',
       params:[sessionStorage.userId,name,breed,gender,age,description]})
    .then(d=>{
       if(d.error) {
@@ -61,10 +67,11 @@ const checkAnimalAddForm = () => {
       }
       console.log(d.id)
 
-      $("animal-add-form")[0].reset();
+      $("#animal-add-form")[0].reset();
 
       sessionStorage.animalId = d.id;
-      $.mobile.navigate($("#animal-add-destination").val());
+
+      // $("#animal-add-modal").modal('toggle');
    })
 }
 

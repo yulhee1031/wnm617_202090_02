@@ -26,6 +26,9 @@ const checkSigninForm = async () => {
       params:[user,pass]
    });
 
+   console.log(found_user)
+
+
    if(found_user.result.length) {
       // logged in
       console.log('success');
