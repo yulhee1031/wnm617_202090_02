@@ -44,7 +44,6 @@ const RecentPage = async() => {
 
 
 
-
 // async and await
 const ListPage = async() => {
    let d = await query({
@@ -52,11 +51,13 @@ const ListPage = async() => {
       params:[sessionStorage.userId]
    });
 
+   $("#list-page .filter-list").html(makeFilterList(d.result))
+
    console.log(d)
 
-   $("#list-page .animallist")
-      .html(d.result.length?makeAnimalList(d.result):'Hey, add an animal.');
+   drawAnimalList(d.result);
 }
+
 
 
 
@@ -74,7 +75,7 @@ const UserProfilePage = async() => {
    });
 }
 
-const UserProfileEditPage = async() => {
+const UserEditPage = async() => {
    query({
       type:'user_by_id',
       params:[sessionStorage.userId]
@@ -85,6 +86,26 @@ const UserProfileEditPage = async() => {
          .html(makeUserEditForm(d.result[0]));
    });
 }
+
+const UserUploadPage = async() => {
+   query({
+      type:'user_by_id',
+      params:[sessionStorage.userId]
+   }).then(d=>{
+      console.log(d)
+
+      makeUploaderImage({
+         namespace:'user-upload',
+         folder:'',
+         name:d.result[0].img
+      })
+   });
+}
+
+
+
+
+
 
 
 
@@ -111,7 +132,7 @@ const AnimalProfilePage = async() => {
    
 }
 
-const AnimalProfileEditPage = async() => {
+const AnimalEditPage = async() => {
    query({
       type:'animal_by_id',
       params:[sessionStorage.animalId]
@@ -122,7 +143,6 @@ const AnimalProfileEditPage = async() => {
          .html(makeAnimalEditForm(d.result[0]));
    });
 }
-
 
 
 

@@ -5,6 +5,8 @@
 // Document Ready
 $(()=>{
 
+   console.dir($("#user-edit-form")[0])
+
    checkUserId();
 
    $(document)
@@ -14,19 +16,19 @@ $(()=>{
    .on("pagecontainerbeforeshow",function(e,ui){
       console.log(ui.toPage[0].id)
 
-      // Routing
+           // Routing
       switch(ui.toPage[0].id) {
          case 'recent-page': RecentPage(); break;
          case 'list-page': ListPage(); break;
 
          case 'user-profile-page': UserProfilePage(); break;
-         case 'user-edit-page': UseEditPage(); break;
+         case 'user-edit-page': UserEditPage(); break;
+         case 'user-upload-page': UserUploadPage(); break;
 
          case 'animal-profile-page': AnimalProfilePage(); break;
          case 'animal-edit-page': AnimalEditPage(); break;
 
          case 'location-add-page': LocationAddPage(); break;
-
       }
    })
 
@@ -44,14 +46,17 @@ $(()=>{
       e.preventDefault();
       checkSignupForm();
    })
+   .on("submit","#list-search-form",function(e){
+      e.preventDefault();
+      checkSearchForm();
+   })
 
 
 
 
    /* FORM SUBMIT BY BUTTON */
 
-   .on("submit","#animal-add-form",function(e){
-      e.preventDefault();
+   .on("click",".js-animal-add",function(e){
       checkAnimalAddForm();
    })
    .on("click",".js-animal-edit",function(e){
@@ -63,8 +68,6 @@ $(()=>{
    .on("click",".js-location-add",function(e){
       checkLocationAddForm();
    })
-
-
 
 
 
@@ -86,8 +89,28 @@ $(()=>{
    .on("click",".js-animal-delete",function(e){
       checkAnimalDelete($(this).data("id"));
    })
+   .on("click",".js-user-upload",function(e){
+      checkUserUpload();
+   })
 
 
+
+
+  
+   .on("click",".filter",function(e){
+      checkListFilter($(this).data());
+   })
+   .on("change",".image-uploader input",function(e){
+      checkUpload(this.files[0])
+      .then(d=>{
+         console.log(d)
+         makeUploaderImage({
+            namespace:'user-upload',
+            folder:'uploads/',
+            name:d.result
+         })
+      })
+   })
 
 
 

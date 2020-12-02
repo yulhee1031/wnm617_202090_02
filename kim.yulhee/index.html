@@ -3,6 +3,14 @@
 <html lang="en">
 <head> 
    <meta charset="UTF-8">
+
+   <meta name="apple-mobile-web-app-capable" content="yes">
+   <meta name="mobile-web-app-capable" content="yes">
+
+   <link rel="apple-touch-icon" href="./site_logo.png">
+   <link rel="icon" href="./site_logo.png">
+
+
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Animal Tracker</title>
 
@@ -134,8 +142,20 @@
 
    <section data-role="page" id="list-page">
       <header data-role="header">
-         <h1>List Page</h1>
+          <ul>
+            <li class="flex-stretch" style="padding:0.2em 0.5em">
+               <form class="hotdog" id="list-search-form" data-ajax="false">
+                  <input type="search" id="list-search-input" data-role="none">
+               </form>
+            </li>
+            <li><a href="#animal-add-page">&plus;</a></li>
+         </ul>
       </header>
+
+     <header data-role="header">
+         <div class="filter-list"></div>
+      </header>
+
       <div data-role="main">
          <div class="floater bottom right">
             <div class="btn-circle" data-toggle="#animal-add-modal">&plus;</div>
@@ -217,6 +237,32 @@
          </form>
       </div>
    </section>
+
+   <section data-role="page" id="user-upload-page">
+      <header data-role="header">
+         <h1>Choose Photo</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" class="js-user-upload">Save</a></li>
+         </ul>
+
+      </header>
+     <div data-role="main">
+         <form id="user-upload-form" data-ajax="false">
+            <input type="hidden" id="user-upload-image">
+            <label class="image-uploader full">
+               <input type="file" data-role="none" id="user-upload-input">
+            </label>
+         </form>
+      </div>
+   </section>
+
+
+
+
+
+
 
    <section data-role="page" id="animal-profile-page">
       <header data-role="header">

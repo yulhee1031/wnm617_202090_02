@@ -63,6 +63,31 @@ a:hover {
 
 
 
+.hotdog {
+   width:100%;
+   background-color:var(--color-neutral-light);
+
+   padding:0.5em 1em;
+   border-radius:2em;
+   line-height:1;
+   display:inline-flex;
+}
+.hotdog input {
+   background-color:transparent;
+   border-width:0;
+   font:inherit;
+   color:inherit;
+   border-radius:0;
+   padding:0;
+   margin:0;
+   width:100%;
+   flex:1;
+   outline:0;
+}
+.ui-header .hotdog {
+   height:calc(var(--header-height) - 0.4em);
+   vertical-align: middle;
+}
 
 
 
@@ -415,6 +440,9 @@ hr {
 
 /* PROFILE */
 .profile-image {
+   position:relative;
+}
+.profile-image {
    padding-top:  50px;
    margin-left: 10px;
 
@@ -534,6 +562,17 @@ hr {
 
 
 
+
+.filter-list {
+    display: flex;
+    overflow: auto;
+}
+.filter {
+    padding: 0px 0.5em;
+    font-weight:bold;
+}
+
+
 .map {
   position:absolute;
   top:0;
@@ -559,4 +598,25 @@ hr {
 .animal-bottom {
   flex:1 1 100%;
   position:relative;
+}
+
+
+
+
+
+.image-uploader.full {
+   position:absolute;
+   top:0;
+   left:0;
+   width:100%;
+   height:100%;
+
+   background-size:contain;
+   background-repeat:no-repeat;
+}
+.ui-mobile label.image-uploader {
+   margin:0;
+}
+.image-uploader input {
+   display:none;
 }
