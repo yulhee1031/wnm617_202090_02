@@ -15,7 +15,7 @@
    --color-neutral-lighter: #cad3d5;
    --color-neutral-light: #3e6c6b;
    --color-neutral-mediumer: #b3bdb3;
-   --color-neutral-medium: #788578;
+   --color-neutral-medium: #985a0c;
    --color-neutral-dark: #304830;
 
    --color-main-light: #e4fcd1;
@@ -146,7 +146,8 @@ a:hover {
     display: inline-block;
     width: 100%;
     border-width: 0;
-    background-color: var(--color-neutral-light);
+    background-color: #985a0c;
+    color: white;
     font: inherit;
     padding: 0.5em 1em;
     margin: 0;
@@ -349,8 +350,9 @@ a:hover {
 /* MODAL TOAST */
 .modal-toast {
    position: absolute;
+   color: white;
    width: 50%;
-   background-color: #e7ff3f;
+   background-color: #985a0c;
    box-shadow: 1px 1px 5px rgba(0,0,0,0.15);
    border-radius: 0.2em;
    padding: 1em;
@@ -469,7 +471,7 @@ hr {
    margin-bottom: 10px;
    text-align: inherit;
    margin-top: 7px;
-   color: #3e6c6b;
+   color: #985a0c;
    font-family: 'Nunito', sans-serif;;
 }
 

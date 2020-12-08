@@ -1,7 +1,8 @@
 
-const drawAnimalList = (a,empty_phrase='Hey Dummy, add an animal.') => {
+const drawAnimalList = (a,empty_phrase='Hello, please add an animal.') => {
    $("#list-page .animallist")
-      .html(a.length?makeAnimalList(a):empty_phrase);
+      .html(a && 
+         a.length?makeAnimalList(a):empty_phrase);
 }
 
 
@@ -31,7 +32,6 @@ const makeUserProfile = templater(o=>`
 	<div class="profile-name"><strong>${o.name}</strong></div>
     <div class="profile-phone">${o.phone}</div> 
     <div class="profile-email">${o.email}</div>
-    <div class="profile-location">${o.location}</div>
 </div>
 `);
 
@@ -171,7 +171,6 @@ const filterList = (animals,type) => {
 const makeFilterList = (animals) => {
    return `
    <div class="filter" data-field="type" data-value="all">All</div> | 
-   ${filterList(animals,'type')} | 
    ${filterList(animals,'breed')} 
    `;
 }

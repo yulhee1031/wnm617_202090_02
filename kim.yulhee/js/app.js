@@ -50,15 +50,16 @@ $(()=>{
       e.preventDefault();
       checkSearchForm();
    })
+   .on("submit","#animal-add-form",function(e){
+      e.preventDefault();
+      checkAnimalAddForm();
+   })
 
 
 
 
    /* FORM SUBMIT BY BUTTON */
-
-   .on("click",".js-animal-add",function(e){
-      checkAnimalAddForm();
-   })
+   
    .on("click",".js-animal-edit",function(e){
       checkAnimalEditForm();
    })

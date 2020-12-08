@@ -5,19 +5,18 @@
 const checkSignupForm = () => {
    let username = $("#signup-username").val();
    let name = $("#signup-name").val();
-   let phone = $("#signup-phone").val();
    let email = $("#signup-email").val();
    let password = $("#signup-password").val();
    let passwordconfirm = $("#signup-password-confirm").val();
 
-   console.log(username,name,phone,email,password)
+   console.log(username,name,email,password)
 
    if(password!=passwordconfirm) {
       throw "Passwords don't match";
    } else {
       query({
          type:'insert_user',
-         params:[username,name,phone,email,password]})
+         params:[username,name,email,password]})
       .then(d=>{
          if(d.error) {
             throw d.error;
@@ -67,11 +66,9 @@ const checkAnimalAddForm = () => {
       }
       console.log(d.id)
 
-      $("#animal-add-form")[0].reset();
-
       sessionStorage.animalId = d.id;
 
-      // $("#animal-add-modal").modal('toggle');
+      location.reload();
    })
 }
 

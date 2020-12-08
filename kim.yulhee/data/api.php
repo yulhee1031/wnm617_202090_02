@@ -159,16 +159,16 @@ function makeStatement($data) {
       // INSERT
 
       case "insert_user":
-         $r = makeQuery($c,"SELECT * FROM `track_users` WHERE `username` = ? OR `email` = ?",[$p[0],$p[1]]);
+         $r = makeQuery($c,"SELECT * FROM `track_users` WHERE `username` = ? OR `email` = ?",[$p[0],$p[2]]);
          if(count($r['result'])) return ['error'=>"Username or Email already exists"];
 
          $r = makeQuery($c,"INSERT INTO
-            `track_users`
-            (`username`,`name`,`phone`,`email`,`password`,`img`,`date_create`)
-            VALUES
-            (?, ?, ?, ?, md5(?), 'https://via.placeholder.com/400/?text=USER', NOW())
-            ",$p,false);
-         return ["id"=>$c->lastInsertId()];
+               `track_users`
+               (`username`,`name`,`email`,`password`,`img`,`date_create`)
+               VALUES
+               (?, ?, ?, md5(?), 'https://via.placeholder.com/400/?text=USER', NOW())
+               ",$p,false);
+            return ["id"=>$c->lastInsertId()];
 
       case "insert_animal":
             $r = makeQuery($c,"INSERT INTO
