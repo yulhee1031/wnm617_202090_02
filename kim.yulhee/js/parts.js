@@ -80,7 +80,13 @@ const FormControl = ({namespace,name,displayname,type,placeholder,value}) => {
 }
 
 
-const mmakeAnimalEditForm = o => `
+const makeAnimalEditForm = o => `
+<div>
+   <input type="hidden" id="animal-edit-image" value="${o.img}">
+   <label class="image-uploader thumbnail picked" style="background-image:url('${o.img}')">
+      <input type="file" data-role="none" id="animal-edit-upload">
+   </label>
+</div>
 ${FormControl({
    namespace:"animal",
    name:"name",
@@ -179,8 +185,9 @@ const makeFilterList = (animals) => {
 
 
 
-const makeUploaderImage = ({namespace,folder,name}) => {
-   $(`#${namespace}-image`).val(folder+name);
-   $(`#${namespace}-page .image-uploader`)
-      .css({'background-image':`url('${folder+name}')`})
+
+const makeUploaderImage = (el,name,folder='') => {
+   console.log(el,name)
+   $(el).parent().css({'background-image':`url('${folder+name}')`})
+      .prev().val(folder+name)
 }

@@ -53,16 +53,19 @@ function makeQuery($c,$ps,$p,$makeResults=true) {
 
 function makeUpload($file,$folder) {
    $filename = microtime(true) . "_" . $_FILES[$file]['name'];
-
-   if(@move_uploaded_file(
-      $_FILES[$file]['tmp_name'],
-      $folder.$filename
-   )) return ['result'=>$filename];
-   else return [
-      "error"=>"File Upload Failed",
-      "_FILES"=>$_FILES,
-      "filename"=>$filename
-   ];
+   try {
+      if(move_uploaded_file(
+         $_FILES[$file]['tmp_name'],
+         $folder.$filename
+      )) return ['result'=>$filename];
+   } catch (Exception $e) {
+      return [
+         "exception"=>$e->getMessage(),
+         "error"=>"File Upload Failed",
+         "_FILES"=>$_FILES,
+         "filename"=>$filename
+      ];
+   }
 }
 
 
@@ -224,6 +227,7 @@ function makeStatement($data) {
                `gender` = ?,
                `age` = ?,
                `description` = ?
+               `img` = ?
             WHERE `id` = ?
             ",$p,false);
          return ["result"=>"success"];

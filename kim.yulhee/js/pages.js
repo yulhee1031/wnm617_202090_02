@@ -62,6 +62,9 @@ const ListPage = async() => {
 
 
 
+
+
+
 const UserProfilePage = async() => {
    query({
       type:'user_by_id',
@@ -94,11 +97,7 @@ const UserUploadPage = async() => {
    }).then(d=>{
       console.log(d)
 
-      makeUploaderImage({
-         namespace:'user-upload',
-         folder:'',
-         name:d.result[0].img
-      })
+      makeUploaderImage($("#user-upload-input"),d.result[0].img)
    });
 }
 
@@ -139,10 +138,16 @@ const AnimalEditPage = async() => {
    }).then(d=>{
       console.log(d)
 
-      $("#animal-form")
+      $("#animal-edit-form")
          .html(makeAnimalEditForm(d.result[0]));
    });
 }
+
+
+
+
+
+
 
 
 

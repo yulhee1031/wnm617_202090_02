@@ -55,6 +55,7 @@ const checkAnimalAddForm = () => {
    let gender = $("#animal-add-gender").val();
    let age = $("#animal-add-age").val();
    let description = $("#animal-add-description").val();
+   let image = $("#animal-edit-image").val();
 
 
    query({
