@@ -125,6 +125,7 @@ const AnimalProfilePage = async() => {
       params:[sessionStorage.animalId]
    }).then(d=>{
       makeMap("#animal-profile-page .map").then(map_el=>{
+         d.result.icon = 'img/icon/paw.svg'
          makeMarkers(map_el,d.result);
       })
    })

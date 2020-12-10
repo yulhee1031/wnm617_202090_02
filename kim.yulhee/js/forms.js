@@ -42,7 +42,6 @@ const checkUserEditForm = () => {
       if(d.error) {
          throw d.error;
       }
-      window.history.go(-2);
    })
 }
 
@@ -55,7 +54,6 @@ const checkAnimalAddForm = () => {
    let gender = $("#animal-add-gender").val();
    let age = $("#animal-add-age").val();
    let description = $("#animal-add-description").val();
-   let image = $("#animal-edit-image").val();
 
 
    query({
@@ -77,18 +75,19 @@ const checkAnimalAddForm = () => {
 
 const checkAnimalEditForm = () => {
    let name = $("#animal-edit-name").val();
-   let type = $("#animal-edit-type").val();
    let breed = $("#animal-edit-breed").val();
+   let gender = $("#animal-edit-gender").val();
+   let age = $("#animal-edit-age").val();
    let description = $("#animal-edit-description").val();
+   let image = $("#animal-edit-image").val();
 
    query({
       type:'update_animal',
-      params:[name,type,breed,description,sessionStorage.animalId]})
+      params:[name,breed,gender,age,description,image,sessionStorage.animalId]})
    .then(d=>{
       if(d.error) {
          throw d.error;
       }
-      window.history.back();
    })
 }
 
@@ -145,12 +144,12 @@ const checkSearchForm = async () => {
 
 
 const checkListFilter = async (d) => {
-   let r = await d.value=='all' ?
-      query({
+   let r = d.value=='all' ?
+      await query({
          type:'animals_by_user_id',
          params:[sessionStorage.userId]
       }) :
-      query({
+      await query({
          type:'animal_filter',
          params:[d.field,d.value,sessionStorage.userId]
       });

@@ -46,6 +46,7 @@ const makeAnimalProfile = templater(o=>`
    <li class="dog-profile-item">Breed: ${o.breed}</li>
    <li class="dog-profile-item">Gender: ${o.gender}</li>
    <li class="dog-profile-item">Age: ${o.age}</li>
+   <li class="dog-profile-item">Description: ${o.description}</li>
 </ul>
 <div>
    <a href="#" class="js-animal-delete" data-id="${o.id}">Delete</a>
@@ -88,7 +89,7 @@ const makeAnimalEditForm = o => `
    </label>
 </div>
 ${FormControl({
-   namespace:"animal",
+   namespace:"animal-edit",
    name:"name",
    displayname:"Name",
    type:"text",
@@ -96,7 +97,7 @@ ${FormControl({
    value:o.name
 })}
 ${FormControl({
-   namespace:"animal",
+   namespace:"animal-edit",
    name:"breed",
    displayname:"Breed",
    type:"text",
@@ -104,7 +105,7 @@ ${FormControl({
    value:o.breed
 })}
 ${FormControl({
-   namespace:"animal",
+   namespace:"animal-edit",
    name:"gender",
    displayname:"Gender",
    type:"text",
@@ -112,7 +113,7 @@ ${FormControl({
    value:o.gender
 })}
 ${FormControl({
-   namespace:"animal",
+   namespace:"animal-edit",
    name:"age",
    displayname:"Age",
    type:"text",
@@ -120,7 +121,7 @@ ${FormControl({
    value:o.age
 })}
 ${FormControl({
-   namespace:"animal",
+   namespace:"animal-edit",
    name:"description",
    displayname:"Description",
    type:"text",
@@ -158,7 +159,7 @@ ${FormControl({
 ${FormControl({
    namespace:"user-edit",
    name:"phone",
-   displayname:"Phone Numbe",
+   displayname:"Phone Number",
    type:"text",
    placeholder:"Type Your Phone Number",
    value:o.phone
