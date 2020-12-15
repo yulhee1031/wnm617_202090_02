@@ -411,7 +411,6 @@ hr {
 
 
 .dog-image {
-   padding-top: 30px;
    text-align: center;
 }
 
@@ -431,6 +430,11 @@ hr {
 .dog-profile-item {
    padding: 0.5em 2em;
    border-bottom:1px solid var(--color-neutral-lighter);
+}
+
+.dog-profile-delete {
+  text-align: center;
+  padding: 10px;
 }
 
 .dog-description {
@@ -469,15 +473,16 @@ hr {
 }
 .profile-body {
    padding:1em;
-   margin-bottom: 50px;
+   margin-bottom: 10px;
+   text-align: center;
 }
 
 
 .profile-name {
    font-size:1.5em;
-   margin-bottom: 10px;
    text-align: inherit;
    margin-top: 7px;
+   margin-bottom: 7px;
    color: #985a0c;
    font-family: 'Nunito', sans-serif;;
 }
@@ -525,7 +530,17 @@ hr {
   width: 25px;
 }
 
+.user-image {
+   text-align: center;
+}
 
+.user-image img {
+    border-radius: 50%;
+    width: calc(50vw);
+    height: calc(50vw);
+    object-fit: cover;
+    margin: 1em;
+}
 
 
 
@@ -543,7 +558,6 @@ hr {
     box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
     overflow: hidden;
     background-color: white;
-    padding-left: 12px;
 }
 .animallist-description {
    padding:0.5em;
@@ -575,13 +589,13 @@ hr {
 
 
 .filter-list {
-    display: flex;
-    overflow: auto;
+    overflow-x: scroll;
+    white-space: nowrap;
     color: gray;
 }
 .filter {
     padding: 0px 0.5em;
-    color: gray;
+    display: inline-block;
 }
 
 
@@ -612,7 +626,14 @@ hr {
   position:relative;
 }
 
-
+.js-animal-delete {
+  border-style: solid;
+  padding: 5px;
+  background-color: #985a0c;
+  border-color: #985a0c;
+  border-radius: 10px;
+  color: white;
+}
 
 
 

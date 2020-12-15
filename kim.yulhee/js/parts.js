@@ -5,6 +5,10 @@ const drawAnimalList = (a,empty_phrase='Hello, please add an animal.') => {
          a.length?makeAnimalList(a):empty_phrase);
 }
 
+const highlistAnimalFilter = (d) => {
+  $('.filter').css('color', 'grey');
+  $('[data-value="' + d + '"]').css('color', 'black');
+}
 
 const makeAnimalList = templater(o=>`
 <div class="animallist-item js-animal-jump" data-id="${o.id}">
@@ -23,15 +27,17 @@ const makeAnimalList = templater(o=>`
 
 const makeUserProfile = templater(o=>`
 <div class="profile-image">
-   <img src="${o.img}" alt="">
    <div class="floater right bottom">
-      <a href="#user-upload-page">edit</a>
+      <a href="#user-upload-page">Edit Image</a>
    </div>
 </div>
 <div class="profile-body">
+   <div class="user-image">
+     <img src="${o.img}" alt="">
+   </div>
 	<div class="profile-name"><strong>${o.name}</strong></div>
-    <div class="profile-phone">${o.phone}</div> 
-    <div class="profile-email">${o.email}</div>
+   <div class="profile-phone">${o.phone}</div> 
+   <div class="profile-email">${o.email}</div>
 </div>
 `);
 
@@ -48,7 +54,7 @@ const makeAnimalProfile = templater(o=>`
    <li class="dog-profile-item">Age: ${o.age}</li>
    <li class="dog-profile-item">Description: ${o.description}</li>
 </ul>
-<div>
+<div class="dog-profile-delete">
    <a href="#" class="js-animal-delete" data-id="${o.id}">Delete</a>
 </div>
 `);
@@ -57,13 +63,13 @@ const makeAnimalProfile = templater(o=>`
 const makeAnimalPopup = o=>`
 <div class="display-flex">
 <div>
-   <img src="${o.img}" alt="" style="width:100px;height:100px">
+   <img src="${o.img}" alt="" style="width:100px;height:100px;padding:7px">
 </div>
 <div>
    <div class="profile-name">${o.name}</div>
    <div><strong>Breed</strong>: ${o.breed}</div>
-    <div><strong>Gender</strong>: ${o.gender}</div>
-     <div><strong>Age</strong>: ${o.age}</div>
+   <div><strong>Gender</strong>: ${o.gender}</div>
+   <div><strong>Age</strong>: ${o.age}</div>
 </div>
 </div>
 <div>
@@ -84,7 +90,7 @@ const FormControl = ({namespace,name,displayname,type,placeholder,value}) => {
 const makeAnimalEditForm = o => `
 <div>
    <input type="hidden" id="animal-edit-image" value="${o.img}">
-   <label class="image-uploader thumbnail picked" style="background-image:url('${o.img}')">
+   <label class="image-uploader thumbnail picked" style="background-image:url('${o.img}');margin:0 auto;width:150px;height:150px;">
       <input type="file" data-role="none" id="animal-edit-upload">
    </label>
 </div>
@@ -172,12 +178,12 @@ ${FormControl({
 
 const filterList = (animals,type) => {
    let a = [...(new Set(animals.map(o=>o[type])))];
-   return templater(o=>`<div class="filter" data-field="${type}" data-value="${o}">${o[0].toUpperCase()+o.substr(1)}</div>`)(a);
+   return templater(o=>`<div class="filter" data-field="${type}" data-value="${o}" style="color:grey">${o[0].toUpperCase()+o.substr(1)}</div> |`)(a);
 }
 
 const makeFilterList = (animals) => {
    return `
-   <div class="filter" data-field="type" data-value="all">All</div> | 
+   <div class="filter" data-field="type" data-value="all" style="color:black">All</div> | 
    ${filterList(animals,'breed')} 
    `;
 }

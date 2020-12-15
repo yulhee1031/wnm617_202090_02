@@ -9,7 +9,6 @@ const query = (options) => {
    }).then(d=>d.json())
 }
 
-// query({type:'users_all'}).then(d=>console.log(d))
 
 
 // currying functions

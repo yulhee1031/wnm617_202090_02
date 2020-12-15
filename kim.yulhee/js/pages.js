@@ -17,20 +17,13 @@ const RecentPage = async() => {
 
    let map_el = await makeMap("#recent-page .map");
 
-   //console.log(map_el.data('map'))
 
    makeMarkers(map_el,valid_animals);
-   // makeMarkers(map_el,[]);
+
 
    map_el.data("markers").forEach((o,i)=>{
       o.addListener("click",function(){
-         // console.log("honk")
-
-         /*
-         // SIMPLE EXAMPLE
-         sessionStorage.animalId = valid_animals[i].animal_id;
-         $.mobile.navigate("#animal-profile-page");
-         */
+         
 
          // INFOWINDOW EXAMPLE
          map_el.data("infoWindow")

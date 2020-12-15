@@ -204,7 +204,7 @@ function makeStatement($data) {
                `username` = ?,
                `name` = ?,
                `phone` = ?,
-               `email` = ?,
+               `email` = ?
             WHERE `id` = ?
             ",$p,false);
          return ["result"=>"success"];

@@ -156,6 +156,7 @@ const checkListFilter = async (d) => {
 
    console.log(r)
    drawAnimalList(r.result,'No results found');
+   highlistAnimalFilter(d.value);
 }
 
 

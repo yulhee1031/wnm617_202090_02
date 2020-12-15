@@ -98,16 +98,6 @@
    <section data-role="page" id="recent-page">
       <div data-role="main">
          <div class="map"></div>
-
-         <!-- <div class="floater top right">
-            <div class="btn-circle" data-activate="#recent-add-modal" data-deactivate="#recent-profile-modal">&equiv;</div>
-         </div>
-         <div class="floater bottom right">
-            <div class="btn-circle" data-toggle="#recent-profile-modal">&plus;</div>
-         </div>
-      -->
-
-
          <div class="modal" id="recent-animal-modal">
             <div class="modal-drawer bottom">
                <div class="modal-close-floater top right">
@@ -117,13 +107,6 @@
                <div class="modal-body"></div>
             </div>
          </div>
-
-         <!-- <div class="modal" id="recent-profile-modal">
-            <div class="modal-drawer left">
-               <div class="modal-head">head</div>
-               <div class="modal-body">body</div>
-            </div>
-         </div> -->
       </div>
 
 
@@ -139,7 +122,7 @@
    <section data-role="page" id="list-page">
       <header data-role="header">
           <ul>
-            <li class="flex-stretch" style="padding:0.2em 0.5em">
+            <li class="flex-stretch">
                <form class="hotdog" id="list-search-form" data-ajax="false">
                   <input type="search" id="list-search-input" data-role="none">
                </form>
@@ -178,6 +161,7 @@
          <div data-role="main">
             <ul class="settings-list">
                <li class="settings-item"><img src="img/settings.svg" alt="settings"><a href="#user-edit-page">Profile Settings</a></li>
+               
                <li class="settings-item"><img src="img/lock.svg" alt="lock"><a href="#password-settings-page">Change Password</a></li>
                <li class="settings-item"><img src="img/logout.svg" alt="logout"><a href="#" class="js-logout">Logout</a></li>
             </ul>
